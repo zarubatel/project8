@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>NEW PAGE</h1>
+    <h1>{{ object_list }}</h1>
+    {% for obj in object_list %}
+    <h2>{{ obj.id }}</h2>
+    <h2>{{ obj.order_dt }}</h2>
+    <h2>{{ obj.order_name }}</h2>
+    <h2>{{ obj.order_phone }}</h2>
+    {% endfor %} -->
+
+<style>
+    .css_input {color:blue; background-color: bisque;}
+</style>    
+
+<form action="{% url 'thanks' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Отправить</button>
+
+</form>
+
+</body>
+</html>
