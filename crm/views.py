@@ -24,9 +24,12 @@ def first_page(request):
     return render(request, './index.html', dict_obj )
 
 def thanks(request):
-    name1 = request.POST['name']
-    phone = request.POST['phone']
-    element = Order(order_name = name1, order_phone = phone)
-    element.save()
-    sendTelegram(tg_name = name1, tg_phone = phone)
-    return render(request, './thanks.html', { 'name1' : name1})
+    if request.POST:
+        name1 = request.POST['name']
+        phone = request.POST['phone']
+        element = Order(order_name = name1, order_phone = phone)
+        element.save()
+        sendTelegram(tg_name = name1, tg_phone = phone)
+        return render(request, './thanks.html', { 'name1' : name1})
+    else:
+        return render(request, './thanks.html')
